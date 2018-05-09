@@ -1,0 +1,207 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* normalize css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 96vh;
+    background-image:
+            linear-gradient(to right bottom,
+                rgba(126,213,111,0.8), rgba(40,180,131,0.8)),
+            url("../img/hero.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    /* specify position of endpoints*/
+    /* 从左上开始顺时针 */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    /* where to start the 40px count: the parent element which the position set to relative */
+}
+
+.logo {
+    height: 35px;
+}
+
+/*.logo:hover {*/
+    /*animation: moveInRight 1s ease-out;*/
+/*}*/
+
+.text-box {
+    position: absolute;
+    /* % in relation to parent element */
+    top: 40%;
+    left: 50%;
+    /* % relation to the element itself */
+    transform: translate(-50%, -50%);
+
+    /* inline elements are treated as text*/
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    /*text-align: center;*/
+    /* fix shake problems after animation */
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 30px;
+    animation: moveInLeft 1s ease-out;
+    /*happen how many times*/
+    /*animation-iteration-count: 3;*/
+    /*animation-delay: 3s;*/
+    /*animation-timing-function: ease-out;*/
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 14px;
+    animation: moveInRight 1s ease-out;
+}
+
+/* css animation */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        /* go to right a bit */
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        /* looks exactly the way it looks now*/
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        /* go to right a bit */
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        /* looks exactly the way it looks now*/
+        transform: translate(0);
+    }
+}
+
+/* link pseudo class */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+
+    /* transition should on initial state */
+    transition: all 0.2s;
+
+    /* for the pseudo element */
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* x-dir y-dir blur color */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* when clicked*/
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+/* put a pseudo element looks like just behind the element */
+.btn::after {
+    /* must specify, empty is ok*/
+    content: "";
+    display: inline-block;
+    /* treated as a child of the real element */
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+
+    /* put "behind" */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        /* looks exactly the way it looks now*/
+        transform: translate(0);
+    }
+}
+
+.btn-animated {
+    /* name duration timing-function delay*/
+    animation: moveInBottom .5s ease-out .5s;
+    /* the style will not be applied before animation */
+    animation-fill-mode: backwards;
+}
