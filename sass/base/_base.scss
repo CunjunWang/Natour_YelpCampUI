@@ -9,19 +9,13 @@
 
 html {
   /* 1rem = 10px now */
-  /*font-size: 10px;*/
+  //font-size: 10px;
 
+  // this define what 1 rem is
   /* better, since user may change default font size of browser */
   font-size: 62.5%;
 }
 
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /*font-size: 16px;*/
-  line-height: 1.7;
-  color: $color-grey-dark;
-  padding: 3rem;
-
   box-sizing: border-box;
 }
