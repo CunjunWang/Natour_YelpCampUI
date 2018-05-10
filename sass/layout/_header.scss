@@ -1,0 +1,41 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)),
+  url("hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  /* specify position of endpoints*/
+  /* 从左上开始顺时针 */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    /* where to start the 40px count: the parent element which the position set to relative */
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /*.logo:hover {*/
+  /*animation: moveInRight 1s ease-out;*/
+  /*}*/
+
+  &__text-box {
+    position: absolute;
+    /* % in relation to parent element */
+    top: 40%;
+    left: 50%;
+    /* % relation to the element itself */
+    transform: translate(-50%, -50%);
+    /* inline elements are treated as text*/
+    text-align: center;
+  }
+}

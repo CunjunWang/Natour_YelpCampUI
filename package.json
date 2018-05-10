@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "compile:sass": "node-sass sass/main.scss css/style.css"
+    "compile:sass": "node-sass sass/main.scss css/style.css",
+    "compile:sass:w": "node-sass sass/main.scss css/style.css -w",
+    "dev": "npm run compile:sass && nodemon index.js"
   },
   "repository": {
     "type": "git",
