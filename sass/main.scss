@@ -1,0 +1,218 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+/* normalize css */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 1rem = 10px now */
+  /*font-size: 10px;*/
+
+  /* better, since user may change default font size of browser */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+
+  box-sizing: border-box;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)),
+  url("/img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  /* specify position of endpoints*/
+  /* 从左上开始顺时针 */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  /* where to start the 40px count: the parent element which the position set to relative */
+}
+
+.hearer__logo {
+  height: 3.5rem;
+}
+
+/*.logo:hover {*/
+/*animation: moveInRight 1s ease-out;*/
+/*}*/
+
+.header__text-box {
+  position: absolute;
+  /* % in relation to parent element */
+  top: 40%;
+  left: 50%;
+  /* % relation to the element itself */
+  transform: translate(-50%, -50%);
+
+  /* inline elements are treated as text*/
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /*text-align: center;*/
+  /* fix shake problems after animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation: moveInLeft 1s ease-out;
+  /*happen how many times*/
+  /*animation-iteration-count: 3;*/
+  /*animation-delay: 3s;*/
+  /*animation-timing-function: ease-out;*/
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+}
+
+/* link pseudo class */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+
+  /* transition should on initial state */
+  transition: all 0.2s;
+
+  /* for the pseudo element */
+  position: relative;
+
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* x-dir y-dir blur color */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* when clicked*/
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* put a pseudo element looks like just behind the element */
+.btn::after {
+  /* must specify, empty is ok*/
+  content: "";
+  display: inline-block;
+  /* treated as a child of the real element */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+
+  /* put "behind" */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all .4s;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn--animated {
+  /* name duration timing-function delay*/
+  animation: moveInBottom .5s ease-out .5s;
+  /* the style will not be applied before animation */
+  animation-fill-mode: backwards;
+}
+
+/* css animation */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    /* go to right a bit */
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    /* looks exactly the way it looks now*/
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    /* go to right a bit */
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    /* looks exactly the way it looks now*/
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    /* looks exactly the way it looks now*/
+    transform: translate(0);
+  }
+}
