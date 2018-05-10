@@ -20,15 +20,20 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    /*padding: 30px;*/
+}
+
+@media (min-width: 40rem) {
+    body {
+        padding: 30px;
+    }
 }
 
 .header {
     height: 96vh;
-    background-image:
-            linear-gradient(to right bottom,
-                rgba(126,213,111,0.8), rgba(40,180,131,0.8)),
-            url("../img/hero.jpg");
+    background-image: linear-gradient(to right bottom,
+    rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)),
+    url("/img/hero.jpg");
     background-size: cover;
     background-position: top;
     position: relative;
@@ -49,7 +54,7 @@ body {
 }
 
 /*.logo:hover {*/
-    /*animation: moveInRight 1s ease-out;*/
+/*animation: moveInRight 1s ease-out;*/
 /*}*/
 
 .text-box {
@@ -145,13 +150,13 @@ body {
 .btn:hover {
     transform: translateY(-3px);
     /* x-dir y-dir blur color */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* when clicked*/
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
