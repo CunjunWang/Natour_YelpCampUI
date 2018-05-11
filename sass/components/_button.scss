@@ -43,6 +43,16 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+
   /* put a pseudo element looks like just behind the element */
   &::after {
     /* must specify, empty is ok*/

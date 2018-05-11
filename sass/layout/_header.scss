@@ -11,6 +11,7 @@
 
   /* specify position of endpoints*/
   /* 从左上开始顺时针 */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   &__logo-box {
