@@ -12,10 +12,35 @@ html {
   //font-size: 10px;
   // this define what 1 rem is
   /* better, since user may change default font size of browser */
-  -webkit-text-size-adjust: none;
-  font-size: 62.5%;
+  font-size: 62.5%;  // 1rem = 10px
+
+  //@include respond(phone) {
+  //  font-size: 50%;  // 1rem =
+  //}
+
+  @include respond(tab-land) { // width < 900px ?
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 0.5
+  }
+
+  @include respond(tab-port) { // width < 600px ?
+    font-size: 50%; // 1rem = 8px, 8/16=0.5
+  }
+
+  //@include respond(phone) { // width < 600px ?
+  //  font-size: 30%; // 1rem = 8px, 8/16=0.5
+  //}
+
+  @include respond(big-desktop) {
+    font-size: 75%;  // 1rem = 12px
+  }
+
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) { // width < 600px ?
+    padding: 0; // 1rem = 8px, 8/16=0.5
+  }
 }
