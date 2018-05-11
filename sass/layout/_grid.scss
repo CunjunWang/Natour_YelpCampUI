@@ -1,0 +1,31 @@
+.row {
+  max-width: $grid-width;
+  //background-color: #eee;
+  margin: 0 auto;
+
+  // .row:not(:last-child)
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  // select all elements start with "col-"
+  [class^="col-"] {
+    //background-color: orangered;
+
+    // all child of the div floated, the height will becom 0
+    // fix this with clearfix
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  // do calc() in Sass:
+  // #{$variable_name}
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+}
