@@ -107,28 +107,27 @@ body {
     margin-bottom: 3rem; }
 
 .u-center-text {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem !important; }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem !important; }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem; }
+  margin-bottom: 8rem !important; }
 
 .u-margin-top-big {
-  margin-top: 8rem; }
+  margin-top: 8rem !important; }
 
 .u-margin-top-huge {
-  margin-top: 10rem; }
+  margin-top: 10rem !important; }
 
 .btn {
-  /* link pseudo class */
   /* when clicked*/
   /* put a pseudo element looks like just behind the element */ }
-  .btn:link, .btn:visited {
+  .btn, .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -138,7 +137,9 @@ body {
     transition: all 0.2s;
     /* for the pseudo element */
     position: relative;
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer; }
   .btn:hover {
     transform: translateY(-3px);
     /* x-dir y-dir blur color */
@@ -146,7 +147,8 @@ body {
     .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
-  .btn:active {
+  .btn:active, .btn:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .btn--white {
@@ -395,6 +397,82 @@ body {
     width: 100%;
     object-fit: cover; }
 
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__input {
+  font-size: 1.5rem;
+  color: inherit;
+  font-family: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 3px solid transparent;
+  transition: all .3s; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #55c57a; }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730; }
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s; }
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 47%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity .2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button:after {
+  opacity: 1; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -451,6 +529,43 @@ body {
     /* inline elements are treated as text*/
     text-align: center; }
 
+.footer {
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem; }
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 8rem; }
+  .footer__logo {
+    width: 15rem;
+    height: auto; }
+  .footer__navigation {
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+    display: inline-block; }
+  .footer__list {
+    list-style: none; }
+  .footer__item {
+    display: inline-block; }
+    .footer__item:not(:last-child) {
+      margin-right: 1.5rem; }
+  .footer__link:link, .footer__link:visited {
+    color: #f7f7f7;
+    background-color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all .2s; }
+  .footer__link:hover, .footer__link:active {
+    color: #55c57a;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg) scale(1.05); }
+  .footer__copyright {
+    color: #f7f7f7;
+    border-top: 1px solid #eee;
+    width: 80%;
+    float: right; }
+
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
@@ -472,5 +587,19 @@ body {
 
 .section-stories {
   padding: 15rem 0;
-  margin-top: -5rem;
   position: relative; }
+
+.section-book {
+  padding: 15rem 0;
+  margin-top: -12rem;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(nat-10.jpg);
+  background-size: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  height: 55rem; }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }
