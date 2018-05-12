@@ -13,6 +13,12 @@
 
   transition: all .3s;
 
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+  }
+
   &__content {
     @include absCenter;
 
@@ -26,8 +32,8 @@
     overflow: hidden;
 
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.5);
-    transition: all .4s .2s;
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .5s .2s;
   }
 
   &__left {
@@ -49,7 +55,7 @@
 
   &__text {
     font-size: 1.4rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 4rem;
 
     -moz-column-count: 2;
     column-count: 2;
@@ -64,12 +70,12 @@
     hyphens: auto;
   }
 
+  // popup open state
   &:target {
     opacity: 1;
     visibility: visible;
   }
 
-  // popup open state
   &:target &__content {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -92,5 +98,4 @@
       color: $color-primary;
     }
   }
-
 }

@@ -19,15 +19,15 @@
   height: 52rem;
 
   &__side {
-    font-size: 2rem;
     height: 52rem;
     transition: all 0.8s ease;
 
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
 
+    -webkit-backface-visibility: hidden;
     // if the back side of the element is visibie
     backface-visibility: hidden;
 
@@ -36,7 +36,7 @@
     // the overgflow parts are hidden
     overflow: hidden;
 
-    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &--front {
       background-color: $color-white;
@@ -56,7 +56,6 @@
       &-3 {
         background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
       }
-
     }
   }
 
@@ -70,7 +69,6 @@
     // rotate along what axis
     transform: rotateY(0);
   }
-
 
   // ============
   // FRONT SIDE STYLING
@@ -87,28 +85,27 @@
 
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 
     &--1 {
-      background-image:
-              linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
-              url("nat-5.jpg");
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+      url("nat-5.jpg");
     }
 
     &--2 {
-      background-image:
-              linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
-              url("nat-6.jpg");
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+      url("nat-6.jpg");
     }
 
     &--3 {
-      background-image:
-              linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
-              url("nat-7.jpg");
+      background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+      url("nat-7.jpg");
     }
   }
 
   &__heading {
-    font-size:2.8rem;
+    font-size: 2.8rem;
     font-weight: 300;
     text-transform: uppercase;
     text-align: right;
@@ -117,7 +114,7 @@
     position: absolute;
     top: 12rem;
     right: 2rem;
-    width: 70%;
+    width: 75%;
   }
 
   &__heading-span {
@@ -125,17 +122,18 @@
 
     // treat the break line as two different element
     -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 
     &--1 {
-      background-image: linear-gradient(to right bottom, rgba($color-secondary-light,.85), rgba($color-secondary-dark, .85)),;
+      background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85)),;
     }
 
     &--2 {
-      background-image: linear-gradient(to right bottom, rgba($color-primary-light,.85), rgba($color-primary-dark, .85)),;
+      background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85)),;
     }
 
     &--3 {
-      background-image: linear-gradient(to right bottom, rgba($color-tertiary-light,.85), rgba($color-tertiary-dark, .85)),;
+      background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85)),;
     }
   }
 
@@ -155,14 +153,13 @@
         font-size: 1.5rem;
         padding: 1rem;
 
-        &:not(:last-child){
+        &:not(:last-child) {
           border-bottom: 1px solid $color-grey-light-2;
         }
 
       }
     }
   }
-
 
   // ============
   // BACK SIDE STYLING
@@ -192,13 +189,13 @@
     font-weight: 100;
   }
 
+  //@include respond(tab-port) {
 
-  @include respond(tab-port) {
-
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;
-    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &__side {
       height: auto;
@@ -222,7 +219,6 @@
     }
 
     &__cta {
-
       position: relative;
       top: 0;
       left: 0;

@@ -1,7 +1,7 @@
 .btn {
 
   &,
-  /* link pseudo class */
+    /* link pseudo class */
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -11,7 +11,7 @@
     border-radius: 10rem;
 
     /* transition should on initial state */
-    transition: all 0.2s;
+    transition: all .2s;
 
     /* for the pseudo element */
     position: relative;
@@ -33,8 +33,8 @@
     }
   }
 
-  /* when clicked*/
-  &:active, &:focus  {
+  /* when clicked */
+  &:active, &:focus {
     outline: none;
     transform: translateY(-1px);
     box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
@@ -45,7 +45,7 @@
     color: $color-grey-dark;
 
     &::after {
-      background-color: #fff;
+      background-color: $color-white;
     }
   }
 
@@ -57,7 +57,6 @@
       background-color: $color-primary;
     }
   }
-
 
   /* put a pseudo element looks like just behind the element */
   &::after {
@@ -80,7 +79,7 @@
 
   &--animated {
     /* name duration timing-function delay*/
-    animation: moveInBottom .5s ease-out .5s;
+    animation: moveInBottom .5s ease-out .75s;
     /* the style will not be applied before animation */
     animation-fill-mode: backwards;
   }
@@ -100,12 +99,12 @@
   &:hover {
     background-color: $color-primary;
     color: $color-white;
-    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
     transform: translateY(-2px);
   }
 
   &:active {
-    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
     transform: translateY(0);
   }
 }

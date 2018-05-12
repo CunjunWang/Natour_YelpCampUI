@@ -14,7 +14,6 @@
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, .1);
     text-align: center;
-
     cursor: pointer;
 
     @include respond(tab-port) {
@@ -59,9 +58,7 @@
 
     opacity: 0;
     width: 0;
-
     transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
   }
 
   &__list {
@@ -71,7 +68,6 @@
     transform: translate(-50%, -50%);
     list-style: none;
     text-align: center;
-
     width: 100%;
   }
 
@@ -108,6 +104,11 @@
       color: $color-primary;
       transform: translateX(1rem);
     }
+
+    //&:active{
+    //  background-color: orangered;
+    //}
+
   }
 
   // FUNCTIONALITY
